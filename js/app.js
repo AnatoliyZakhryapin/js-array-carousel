@@ -20,7 +20,10 @@ const imageDateBase = [
 ]
 // - Creare un ciclo for con quale andiamo inserire nuovi tag img con il src di imagine che ci interessa
 
+// - Calcolo della lunghezza di imageDateBase
 let lengthImageDateBase = imageDateBase.length;
+
+// - Ciclo for per aggiungere le imagine dento html
 for (let i = 0; i < lengthImageDateBase; i++ ){
     carouselBoxDOMElement.innerHTML += `
         <img 
@@ -30,7 +33,12 @@ for (let i = 0; i < lengthImageDateBase; i++ ){
     `;
 }
 
+// - Creamo DOM Element come array per i nostri imagine
+let imagesDOMElement = document.querySelectorAll("img")
 
+// - Facciamo visibile la prima imagine
+imagesDOMElement[0].classList.add("active")
+imagesDOMElement[0].classList.remove("d-none")
 
 // - Creare un evento click per andare a sinistra assegnando il classe active alla imagina succesivva e togliendo il classe dal img attuale
 // - Creare un evento click per andare a destra assegnando il classe active alla imagina precedebnte attuale
