@@ -30,14 +30,14 @@ for (let i = 0; i < lengthImageDateBase; i++ ){
     if (i == 0){
         carouselBoxDOMElement.innerHTML += `
             <img 
-                class="img-fluid rounded ${classActive}"
+                class="img-fluid ${classActive}"
                 src=${imageDateBase[i]}
             >
         `;
     } else {
         carouselBoxDOMElement.innerHTML += `
             <img 
-                class="img-fluid rounded ${classDnone}"
+                class="img-fluid ${classDnone}"
                 src=${imageDateBase[i]}
             >
         `;
@@ -51,14 +51,14 @@ let lengthImagesDOMElement = imagesDOMElement.length;
 // - Creare un evento click per andare a destra o a sinistra assegnando il classe active img 
 
     // - Creamo DOM Element per i arrow
-    const arrowRightDOMElement = document.getElementById("arrow-right");// - 
-    const arrowLeftDOMElement = document.getElementById("arrow-left");
+    const arrowDownDOMElement = document.getElementById("arrow-right");// - 
+    const arrowUpDOMElement = document.getElementById("arrow-left");
 
     // - Assegnamo l'indice della foto iniziale
     let indexCurrentImage = 0;
 
-    // - Evento click per andare a destra
-    arrowRightDOMElement.addEventListener("click", function(){
+    // - Evento click per andare avanti 
+    arrowDownDOMElement.addEventListener("click", function(){
         
         // - Dichiariamo la variabile per l'indice della img succesiva
         let indexNextImage = indexCurrentImage + 1;
@@ -84,8 +84,8 @@ let lengthImagesDOMElement = imagesDOMElement.length;
         }
     })
 
-    // - Evento click per andare a sinistra
-    arrowLeftDOMElement.addEventListener("click", function(){
+    // - Evento click per andare indietro
+    arrowUpDOMElement.addEventListener("click", function(){
 
         // - Dichiariamo la variabile per l'indice della img precedente
         let indexBeforeImage;
