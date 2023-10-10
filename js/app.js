@@ -40,25 +40,18 @@ let lengthImagesDOMElement = imagesDOMElement.length;
 imagesDOMElement[0].classList.add("active")
 imagesDOMElement[0].classList.remove("d-none")
 
-// - Creare un evento click per andare a sinistra assegnando il classe active alla imagina succesivva e togliendo il classe dal img attuale
+// - Creare un evento click per andare a destra o a sinistra assegnando il classe active img 
 
     // - Creamo DOM Element per i arrow
+    const arrowRightDOMElement = document.getElementById("arrow-right");// - 
     const arrowLeftDOMElement = document.getElementById("arrow-left");
-
-    // - Creamo l'evento click
-    arrowLeftDOMElement.addEventListener("click", function(){
-        console.log("bingo")
-    })
-// - Creare un evento click per andare a destra assegnando il classe active alla imagina precedebnte attuale
-
-    // - Creamo DOM Element per i arrow
-    const arrowRightDOMElement = document.getElementById("arrow-right");
 
     // - Assegnamo l'indice della foto iniziale
     let indexCurrentImage = 0;
 
+    // - Evento click per andare a destra
     arrowRightDOMElement.addEventListener("click", function(){
-
+        console.log("start current right", indexCurrentImage)
         // - Dichiariamo la variabile per l'indice della img succesiva
         let indexNextImage = indexCurrentImage + 1;
 
@@ -75,10 +68,38 @@ imagesDOMElement[0].classList.remove("d-none")
         imagesDOMElement[indexNextImage].classList.add("active")
         imagesDOMElement[indexNextImage].classList.remove("d-none")
         
-        // - Controliamo se 
+        // - Controliamo se indice della img corrente è ultimo allore deve partire da capo altrimenti viene incrementato di 1
         if (indexCurrentImage == (lengthImagesDOMElement - 1)){
             indexCurrentImage = 0;
         } else {
             indexCurrentImage++;
+        }
+        console.log("Fine current right", indexCurrentImage)
+    })
+
+    // - Evento click per andare a sinistra
+    arrowLeftDOMElement.addEventListener("click", function(){
+
+        // - Dichiariamo la variabile per l'indice della img precedente
+        let indexBeforeImage;
+        if (indexCurrentImage == 0){
+            indexBeforeImage = lengthImagesDOMElement - 1
+        } else {
+            indexBeforeImage = indexCurrentImage - 1;
+        }
+
+        // - Togliamo/Aggiungiamo i classi a img corrente        
+        imagesDOMElement[indexCurrentImage].classList.remove("active")
+        imagesDOMElement[indexCurrentImage].classList.add("d-none")
+
+        // - Togliamo/Aggiungiamo i classi a img precedente 
+        imagesDOMElement[indexBeforeImage].classList.add("active")
+        imagesDOMElement[indexBeforeImage].classList.remove("d-none")
+         
+        // - Controliamo se indice della img corrente è 0 allore deve partire da ultimo indice altimenti indice della img corrente decrementa di 1
+        if(indexCurrentImage == 0){
+            indexCurrentImage = lengthImagesDOMElement -1;
+        } else {
+            indexCurrentImage--;
         }
     })

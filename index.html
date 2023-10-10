@@ -29,6 +29,10 @@
             top: 50%;
             right: 5%;     
         }
+
+        .active {
+            display: block;
+        }
     </style>
     <title>Carosello Mono Array</title>
 </head>
@@ -40,16 +44,15 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="carousel-box border border-2 border-danger d-flex justify-content-center  align-items-center position-relative">
-                            <img class="img-fluid  rounded" src="./img/01.webp" alt="">
                             <a 
+                            id="arrow-left"
                             class="icon-custom icon-left" 
                             style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" 
                             href="#">
                                 <i class="fa-solid fa-circle-left"></i>
-                            </a>   
-                            <a href="#"> </a>
-    
+                            </a>  
                             <a 
+                            id="arrow-right"
                             class="icon-custom icon-right" 
                             style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" 
                             href="#">
