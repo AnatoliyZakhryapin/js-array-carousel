@@ -9,6 +9,7 @@
 // - Variabili 
 
 const carouselBoxDOMElement = document.querySelector(".carousel-box");
+const carouselBoxMiniDOMElement = document.querySelector(".carousel-box-mini");
 
 // - Creare imageDateBase
 const imageDateBase = [
@@ -34,10 +35,22 @@ for (let i = 0; i < lengthImageDateBase; i++ ){
                 src=${imageDateBase[i]}
             >
         `;
+        carouselBoxMiniDOMElement.innerHTML += `
+            <img 
+                class="image-carousel-mini ${classActive}"
+                src=${imageDateBase[i]}
+            >
+        `;
     } else {
         carouselBoxDOMElement.innerHTML += `
             <img 
                 class="image-carousel ${classDnone}"
+                src=${imageDateBase[i]}
+            >
+        `;
+        carouselBoxMiniDOMElement.innerHTML += `
+            <img 
+                class="image-carousel-mini"
                 src=${imageDateBase[i]}
             >
         `;
