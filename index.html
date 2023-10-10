@@ -6,32 +6,36 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/08d5002177.js" crossorigin="anonymous"></script>
     <style>
-        .image-custom {
-            
+        .carousel-box {
+            height: 800px;
         }
 
-        .carousel-box {
-            height: 600px;
+        .carousel-box,
+        .col-6 {
+            background-color: rgb(29, 29, 29);
         }
 
         .icon-custom {
             color: aliceblue;
-            font-size: 50px;
             position: absolute;
         } 
 
-        .icon-left {
-            top: 50%;
-            left: 5%;
+        .icon-top {
+            top: 3%;
+            left: 50%;
         }
 
-        .icon-right {
-            top: 50%;
-            right: 5%;     
+        .icon-bottom {
+            bottom: 3%;
+            left: 50%;     
         }
 
         .active {
             display: block;
+        }
+
+        img {
+            max-height: 100%;    
         }
     </style>
     <title>Carosello Mono Array</title>
@@ -39,29 +43,24 @@
 <body>
 
     <div class="conteiner pt-5">
-        <div class="row justify-content-center align-content-center">
-            <div class="col-6 col-lg-5 border border-2 border-black d-flex">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="carousel-box border border-2 border-danger d-flex justify-content-center  align-items-center position-relative">
-                            <a 
-                            id="arrow-left"
-                            class="icon-custom icon-left" 
-                            style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" 
-                            href="#">
-                                <i class="fa-solid fa-circle-left"></i>
-                            </a>  
-                            <a 
-                            id="arrow-right"
-                            class="icon-custom icon-right" 
-                            style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" 
-                            href="#">
-                                <i class="fa-solid fa-circle-right"></i>
-                            </a>         
-                    </div>
-                    </div>
-                </div>
-                
+        <div class="row justify-content-center">
+            <div class="col-6 border border-2 border-black d-flex justify-content-center">            
+                <div class="carousel-box border border-2 border-danger d-flex justify-content-center  align-items-center position-relative">
+                    <a 
+                    id="arrow-left"
+                    class="icon-custom icon-top fs-3" 
+                    style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" 
+                    href="#">
+                        <i class="fa-solid fa-circle-left"></i>
+                    </a>  
+                    <a 
+                    id="arrow-right"
+                    class="icon-custom icon-bottom fs-3" 
+                    style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" 
+                    href="#">
+                        <i class="fa-solid fa-circle-right"></i>
+                    </a>         
+                 </div>     
             </div>
         </div>
     </div>
