@@ -59,6 +59,7 @@ for (let i = 0; i < lengthImageDateBase; i++ ){
 
 // - Creamo DOM Element come array per i nostri imagine
 let imagesDOMElement = document.querySelectorAll(".image-carousel")
+let imagesMiniDOMElement = document.querySelectorAll(".image-carousel-mini")
 let lengthImagesDOMElement = imagesDOMElement.length;
 
 // - Creare un evento click per andare a destra o a sinistra assegnando il classe active img 
