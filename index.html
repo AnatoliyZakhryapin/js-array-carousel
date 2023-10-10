@@ -15,19 +15,63 @@
             background-color: rgb(29, 29, 29);
         }
 
+        .image-carousel {
+            max-width: 100%;
+        }
+
+        .carousel-box-mini {
+            width: 35%;
+            right: 0%;
+            z-index: 1;
+            opacity: 110;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+      
+        .image-carousel-mini {
+            position: relative;
+            max-width: 100%;
+            height: 20%;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.4);
+        }
+
+        .carousel-box-mini:hover {
+            opacity: 100%;
+        }
+
+        .image-carousel-mini.active {
+            filter: none;
+            border: 5px solid white;
+        }
+
         .icon-custom {
             color: aliceblue;
             position: absolute;
+            display: none;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        } 
+
+        .icon-custom-mini {
+            color: aliceblue;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
         } 
 
         .icon-top {
             top: 3%;
-            left: 50%;
         }
 
         .icon-bottom {
             bottom: 3%;
-            left: 50%;     
+        }      
+
+        .carousel-box:hover .icon-custom{
+            display: block;
         }
 
         .active {
@@ -44,19 +88,36 @@
 
     <div class="conteiner pt-5">
         <div class="row justify-content-center">
-            <div class="col-6 border border-2 border-black d-flex justify-content-center">            
+            <div class="col-6 border border-2 border-black d-flex justify-content-center position-relative">
+                <div class="carousel-box-mini border border-2 border-success position-absolute position-relative">
+                    <img src="./img/01.webp" class="image-carousel-mini">
+                    <img src="./img/02.webp" class="image-carousel-mini">
+                    <img src="./img/03.webp" class="image-carousel-mini active">
+                    <img src="./img/04.webp" class="image-carousel-mini">
+                    <img src="./img/05.webp" class="image-carousel-mini"> 
+                    <a 
+                    id="arrow-left-mini"
+                    class="icon-custom-mini icon-top fs-3" 
+                    href="#">
+                        <i class="fa-solid fa-angle-up"></i>
+                    </a>  
+                    <a 
+                    id="arrow-right-mini"
+                    class="icon-custom-mini icon-bottom fs-3" 
+                    href="#">
+                        <i class="fa-solid fa-angle-down"></i>
+                    </a> 
+                </div>            
                 <div class="carousel-box border border-2 border-danger d-flex justify-content-center  align-items-center position-relative">
                     <a 
                     id="arrow-left"
-                    class="icon-custom icon-top fs-3" 
-                    style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" 
+                    class="icon-custom icon-top fs-3"  
                     href="#">
                         <i class="fa-solid fa-angle-up"></i>
                     </a>  
                     <a 
                     id="arrow-right"
                     class="icon-custom icon-bottom fs-3" 
-                    style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" 
                     href="#">
                         <i class="fa-solid fa-angle-down"></i>
                     </a>         

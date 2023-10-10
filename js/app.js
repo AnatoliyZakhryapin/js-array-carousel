@@ -30,14 +30,14 @@ for (let i = 0; i < lengthImageDateBase; i++ ){
     if (i == 0){
         carouselBoxDOMElement.innerHTML += `
             <img 
-                class="img-fluid ${classActive}"
+                class="image-carousel ${classActive}"
                 src=${imageDateBase[i]}
             >
         `;
     } else {
         carouselBoxDOMElement.innerHTML += `
             <img 
-                class="img-fluid ${classDnone}"
+                class="image-carousel ${classDnone}"
                 src=${imageDateBase[i]}
             >
         `;
@@ -45,7 +45,7 @@ for (let i = 0; i < lengthImageDateBase; i++ ){
 }
 
 // - Creamo DOM Element come array per i nostri imagine
-let imagesDOMElement = document.querySelectorAll("img")
+let imagesDOMElement = document.querySelectorAll(".image-carousel")
 let lengthImagesDOMElement = imagesDOMElement.length;
 
 // - Creare un evento click per andare a destra o a sinistra assegnando il classe active img 
