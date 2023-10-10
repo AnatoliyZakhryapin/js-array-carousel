@@ -37,7 +37,7 @@ for (let i = 0; i < lengthImageDateBase; i++ ){
         `;
         carouselBoxMiniDOMElement.innerHTML += `
             <img 
-                class="image-carousel-mini ${classActive}"
+                class="image-carousel-mini"
                 src=${imageDateBase[i]}
             >
         `;
@@ -65,11 +65,14 @@ let lengthImagesDOMElement = imagesDOMElement.length;
 // - Creare un evento click per andare a destra o a sinistra assegnando il classe active img 
 
     // - Creamo DOM Element per i arrow
-    const arrowDownDOMElement = document.getElementById("arrow-right");// - 
-    const arrowUpDOMElement = document.getElementById("arrow-left");
+    const arrowDownDOMElement = document.getElementById("arrow-down");
+    const arrowUpDOMElement = document.getElementById("arrow-up");
 
     // - Assegnamo l'indice della foto iniziale
     let indexCurrentImage = 0;
+
+    // - Aggiungiamo class active a image-carousel-mini in base al indice della foto principale
+    imagesMiniDOMElement[indexCurrentImage].classList.add("active");
 
     // - Evento click per andare avanti 
     arrowDownDOMElement.addEventListener("click", function(){
@@ -85,10 +88,12 @@ let lengthImagesDOMElement = imagesDOMElement.length;
         // - Togliamo/Aggiungiamo i classi a img corrente        
         imagesDOMElement[indexCurrentImage].classList.remove("active")
         imagesDOMElement[indexCurrentImage].classList.add("d-none")
+        imagesMiniDOMElement[indexCurrentImage].classList.remove("active")
 
         // - Togliamo/Aggiungiamo i classi a img successiva  
         imagesDOMElement[indexNextImage].classList.add("active")
         imagesDOMElement[indexNextImage].classList.remove("d-none")
+        imagesMiniDOMElement[indexNextImage].classList.add("active")
         
         // - Controliamo se indice della img corrente è ultimo allore deve partire da capo altrimenti viene incrementato di 1
         if (indexCurrentImage == (lengthImagesDOMElement - 1)){
@@ -112,10 +117,12 @@ let lengthImagesDOMElement = imagesDOMElement.length;
         // - Togliamo/Aggiungiamo i classi a img corrente        
         imagesDOMElement[indexCurrentImage].classList.remove("active")
         imagesDOMElement[indexCurrentImage].classList.add("d-none")
+        imagesMiniDOMElement[indexCurrentImage].classList.remove("active")
 
         // - Togliamo/Aggiungiamo i classi a img precedente 
         imagesDOMElement[indexBeforeImage].classList.add("active")
         imagesDOMElement[indexBeforeImage].classList.remove("d-none")
+        imagesMiniDOMElement[indexBeforeImage].classList.add("active")
          
         // - Controliamo se indice della img corrente è 0 allore deve partire da ultimo indice altimenti indice della img corrente decrementa di 1
         if(indexCurrentImage == 0){
