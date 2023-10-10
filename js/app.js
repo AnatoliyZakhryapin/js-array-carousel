@@ -24,21 +24,29 @@ const imageDateBase = [
 let lengthImageDateBase = imageDateBase.length;
 
 // - Ciclo for per aggiungere le imagine dento html
+const classDnone = "d-none";
+const classActive = "active";
 for (let i = 0; i < lengthImageDateBase; i++ ){
-    carouselBoxDOMElement.innerHTML += `
-        <img 
-            class="img-fluid rounded d-none"
-            src=${imageDateBase[i]}
-        >
-    `;
+    if (i == 0){
+        carouselBoxDOMElement.innerHTML += `
+            <img 
+                class="img-fluid rounded ${classActive}"
+                src=${imageDateBase[i]}
+            >
+        `;
+    } else {
+        carouselBoxDOMElement.innerHTML += `
+            <img 
+                class="img-fluid rounded ${classDnone}"
+                src=${imageDateBase[i]}
+            >
+        `;
+    }
 }
 
 // - Creamo DOM Element come array per i nostri imagine
 let imagesDOMElement = document.querySelectorAll("img")
 let lengthImagesDOMElement = imagesDOMElement.length;
-// - Facciamo visibile la prima imagine
-imagesDOMElement[0].classList.add("active")
-imagesDOMElement[0].classList.remove("d-none")
 
 // - Creare un evento click per andare a destra o a sinistra assegnando il classe active img 
 
@@ -51,7 +59,7 @@ imagesDOMElement[0].classList.remove("d-none")
 
     // - Evento click per andare a destra
     arrowRightDOMElement.addEventListener("click", function(){
-        console.log("start current right", indexCurrentImage)
+        
         // - Dichiariamo la variabile per l'indice della img succesiva
         let indexNextImage = indexCurrentImage + 1;
 
@@ -74,7 +82,6 @@ imagesDOMElement[0].classList.remove("d-none")
         } else {
             indexCurrentImage++;
         }
-        console.log("Fine current right", indexCurrentImage)
     })
 
     // - Evento click per andare a sinistra
