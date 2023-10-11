@@ -25,37 +25,41 @@ const imageDateBase = [
 let lengthImageDateBase = imageDateBase.length;
 
 // - Ciclo for per aggiungere le imagine dento html
+const classActive = "active"; // - classe active che ha dispay block
 
-const classActive = "active";
 for (let i = 0; i < lengthImageDateBase; i++ ){
     if (i == 0){
-        carouselBoxDOMElement.innerHTML += `
+        const html = `
             <img 
                 class="image-carousel ${classActive}"
                 src=${imageDateBase[i]}
             >
-        `;
-        carouselBoxDOMElement.classList.add(`bg-img-${i}`)
-        carouselBoxMiniDOMElement.innerHTML += `
+        `; // - constanta con il html da creare per carousel grande
+        const htmlMini = `
             <img 
                 class="image-carousel-mini"
                 src=${imageDateBase[i]}
             >
-        `;
-        // carouselAfterBoxDOMElement.style.backgroundImage ="url(" + imageDateBase[i] + ")";
+        `; // - constanta con il html da creare per carousel mini
+        carouselBoxDOMElement.innerHTML += html;
+        carouselBoxMiniDOMElement.innerHTML += htmlMini;
+        // - assegna bg image per la prima foto
+        carouselBoxDOMElement.classList.add(`bg-img-${i}`)    
     } else {
-        carouselBoxDOMElement.innerHTML += `
+        const html = `
             <img 
                 class="image-carousel"
                 src=${imageDateBase[i]}
             >
-        `;
-        carouselBoxMiniDOMElement.innerHTML += `
+        `; // - constanta con il html da creare per carousel grande
+        const htmlMini = `
             <img 
                 class="image-carousel-mini"
                 src=${imageDateBase[i]}
-            >
-        `;
+            >   
+        `; // - constanta con il html da creare per carousel mini
+        carouselBoxDOMElement.innerHTML += html;
+        carouselBoxMiniDOMElement.innerHTML += htmlMini;
         // carouselAfterBoxDOMElement.style.backgroundImage = "url(" + imageDateBase[i] + ")";
     }
 }
