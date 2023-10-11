@@ -104,7 +104,7 @@ let lengthImagesMiniDOMElement = imagesMiniDOMElement.length;
     // - Ciclo for con evento click per andare avanti 
     for (let i = 0; i < lengthArrowDownDOMElement; i++){
         arrowDownDOMElement[i].addEventListener("click", function(){
-        
+            console.log("currente inizio click  su btn", indexCurrentImage)
             // - Dichiariamo la variabile per l'indice della img succesiva
             let indexNextImage = indexCurrentImage + 1;
     
@@ -115,6 +115,7 @@ let lengthImagesMiniDOMElement = imagesMiniDOMElement.length;
     
             // - Togliamo/Aggiungiamo i classi a img corrente        
             imagesDOMElement[indexCurrentImage].classList.remove("active")
+            
             // imagesDOMElement[indexCurrentImage].classList.add("d-none")
             imagesMiniDOMElement[indexCurrentImage].classList.remove("active")
             carouselBoxDOMElement.classList.remove(`bg-img-${indexCurrentImage}`)
@@ -127,18 +128,21 @@ let lengthImagesMiniDOMElement = imagesMiniDOMElement.length;
     
             
             // - Controliamo se indice della img corrente è ultimo allore deve partire da capo altrimenti viene incrementato di 1
-            if (indexCurrentImage == (lengthImagesDOMElement - 1)){
+            if (indexCurrentImage === (lengthImagesDOMElement - 1)){
                 indexCurrentImage = 0;
             } else {
                 indexCurrentImage++;
             }
+            console.log("next dopo click  su btn", indexNextImage)
+            console.log("currente dopo click  su btn", indexCurrentImage)
         })
     }
    
-
+    
     // - Ciclo for con evento click per andare indietro
     for (let i = 0; i < lengthArrowUpDOMElement; i++){
         arrowUpDOMElement[i].addEventListener("click", function(){
+            console.log("currente inizio click  su btn", indexCurrentImage)
 
             // - Dichiariamo la variabile per l'indice della img precedente
             let indexBeforeImage;
@@ -147,16 +151,17 @@ let lengthImagesMiniDOMElement = imagesMiniDOMElement.length;
             } else {
                 indexBeforeImage = indexCurrentImage - 1;
             }
-    
+
             // - Togliamo/Aggiungiamo i classi a img corrente        
             imagesDOMElement[indexCurrentImage].classList.remove("active")
+
             // imagesDOMElement[indexCurrentImage].classList.add("d-none")
             imagesMiniDOMElement[indexCurrentImage].classList.remove("active")
             carouselBoxDOMElement.classList.remove(`bg-img-${indexCurrentImage}`)
     
-    
             // - Togliamo/Aggiungiamo i classi a img precedente 
             imagesDOMElement[indexBeforeImage].classList.add("active")
+
             // imagesDOMElement[indexBeforeImage].classList.remove("d-none")
             imagesMiniDOMElement[indexBeforeImage].classList.add("active")
             carouselBoxDOMElement.classList.add(`bg-img-${indexBeforeImage}`)
@@ -167,31 +172,45 @@ let lengthImagesMiniDOMElement = imagesMiniDOMElement.length;
             } else {
                 indexCurrentImage--;
             }
+            
+            console.log("before dopo click  su btn", indexBeforeImage)
+            console.log("currente dopo click  su btn", indexCurrentImage)
         })
+        
     }
 
     // - Ciclo for con evento click per cambiare image in base a immagine cliccata
-        // - Index della immagine cliccata precedentemente
-        let indexBeforeImage = indexCurrentImage; 
+    
         // - Ciclo FOR
-        for (let s = 0; s < lengthImagesMiniDOMElement; s++){
+        for (let s = 0; s < lengthImagesMiniDOMElement; s++){ 
             imagesMiniDOMElement[s].addEventListener("click", function(){
+                // - Index della immagine cliccata precedentemente
+                let indexBeforeImage = indexCurrentImage;
+                console.log("currente inizio click  su image", indexCurrentImage)
+                console.log("before inizio click  su image", indexBeforeImage)
+                
                 // - Dichiariamo la variabile per l'indice della img cliccata
                 let indexClickImage = s;
-        
+                console.log("clIck dopo click", indexClickImage)
+
                 // - Togliamo i classi a img precedente       
                 imagesDOMElement[indexBeforeImage].classList.remove("active")
+                
                 // imagesDOMElement[indexCurrentImage].classList.add("d-none")
                 imagesMiniDOMElement[indexBeforeImage].classList.remove("active")
                 carouselBoxDOMElement.classList.remove(`bg-img-${indexBeforeImage}`)
         
                 // - Aggiungiamo i classi a img cliccata
                 imagesDOMElement[indexClickImage].classList.add("active")
+                
                 // imagesDOMElement[indexNextImage].classList.remove("d-none")
                 imagesMiniDOMElement[indexClickImage].classList.add("active")
                 carouselBoxDOMElement.classList.add(`bg-img-${indexClickImage}`)
         
                 // - Assegnamo il nuovo valore di current image
                 indexBeforeImage = indexClickImage;
+                indexCurrentImage = indexClickImage;
+                console.log("before dopo click  su image", indexBeforeImage)
+                console.log("currente dopo click  su image", indexCurrentImage)
             })
         }
