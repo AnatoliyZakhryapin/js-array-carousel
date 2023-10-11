@@ -82,6 +82,7 @@ for (let i = 0; i < lengthImageDateBase; i++ ){
 let imagesDOMElement = document.querySelectorAll(".image-carousel")
 let imagesMiniDOMElement = document.querySelectorAll(".image-carousel-mini")
 let lengthImagesDOMElement = imagesDOMElement.length;
+let lengthImagesMiniDOMElement = imagesMiniDOMElement.length;
 
 // - Creare un evento click per andare a destra o a sinistra assegnando il classe active img 
 
@@ -168,4 +169,29 @@ let lengthImagesDOMElement = imagesDOMElement.length;
             }
         })
     }
-  
+
+    // - Ciclo for con evento click per cambiare image in base a immagine cliccata
+        // - Index della immagine cliccata precedentemente
+        let indexBeforeImage = indexCurrentImage; 
+        // - Ciclo FOR
+        for (let s = 0; s < lengthImagesMiniDOMElement; s++){
+            imagesMiniDOMElement[s].addEventListener("click", function(){
+                // - Dichiariamo la variabile per l'indice della img cliccata
+                let indexClickImage = s;
+        
+                // - Togliamo i classi a img precedente       
+                imagesDOMElement[indexBeforeImage].classList.remove("active")
+                // imagesDOMElement[indexCurrentImage].classList.add("d-none")
+                imagesMiniDOMElement[indexBeforeImage].classList.remove("active")
+                carouselBoxDOMElement.classList.remove(`bg-img-${indexBeforeImage}`)
+        
+                // - Aggiungiamo i classi a img cliccata
+                imagesDOMElement[indexClickImage].classList.add("active")
+                // imagesDOMElement[indexNextImage].classList.remove("d-none")
+                imagesMiniDOMElement[indexClickImage].classList.add("active")
+                carouselBoxDOMElement.classList.add(`bg-img-${indexClickImage}`)
+        
+                // - Assegnamo il nuovo valore di current image
+                indexBeforeImage = indexClickImage;
+            })
+        }
