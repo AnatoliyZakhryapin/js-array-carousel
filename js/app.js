@@ -25,7 +25,7 @@ const imageDateBase = [
 let lengthImageDateBase = imageDateBase.length;
 
 // - Ciclo for per aggiungere le imagine dento html
-const classDnone = "d-none";
+
 const classActive = "active";
 for (let i = 0; i < lengthImageDateBase; i++ ){
     if (i == 0){
@@ -46,7 +46,7 @@ for (let i = 0; i < lengthImageDateBase; i++ ){
     } else {
         carouselBoxDOMElement.innerHTML += `
             <img 
-                class="image-carousel ${classDnone}"
+                class="image-carousel"
                 src=${imageDateBase[i]}
             >
         `;
@@ -93,13 +93,13 @@ let lengthImagesDOMElement = imagesDOMElement.length;
     
             // - Togliamo/Aggiungiamo i classi a img corrente        
             imagesDOMElement[indexCurrentImage].classList.remove("active")
-            imagesDOMElement[indexCurrentImage].classList.add("d-none")
+            // imagesDOMElement[indexCurrentImage].classList.add("d-none")
             imagesMiniDOMElement[indexCurrentImage].classList.remove("active")
             carouselBoxDOMElement.classList.remove(`bg-img-${indexCurrentImage}`)
     
             // - Togliamo/Aggiungiamo i classi a img successiva  
             imagesDOMElement[indexNextImage].classList.add("active")
-            imagesDOMElement[indexNextImage].classList.remove("d-none")
+            // imagesDOMElement[indexNextImage].classList.remove("d-none")
             imagesMiniDOMElement[indexNextImage].classList.add("active")
             carouselBoxDOMElement.classList.add(`bg-img-${indexNextImage}`)
     
@@ -128,14 +128,14 @@ let lengthImagesDOMElement = imagesDOMElement.length;
     
             // - Togliamo/Aggiungiamo i classi a img corrente        
             imagesDOMElement[indexCurrentImage].classList.remove("active")
-            imagesDOMElement[indexCurrentImage].classList.add("d-none")
+            // imagesDOMElement[indexCurrentImage].classList.add("d-none")
             imagesMiniDOMElement[indexCurrentImage].classList.remove("active")
             carouselBoxDOMElement.classList.remove(`bg-img-${indexCurrentImage}`)
     
     
             // - Togliamo/Aggiungiamo i classi a img precedente 
             imagesDOMElement[indexBeforeImage].classList.add("active")
-            imagesDOMElement[indexBeforeImage].classList.remove("d-none")
+            // imagesDOMElement[indexBeforeImage].classList.remove("d-none")
             imagesMiniDOMElement[indexBeforeImage].classList.add("active")
             carouselBoxDOMElement.classList.add(`bg-img-${indexBeforeImage}`)
     
