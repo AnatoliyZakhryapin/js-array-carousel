@@ -28,40 +28,54 @@ let lengthImageDateBase = imageDateBase.length;
 const classActive = "active"; // - classe active che ha dispay block
 
 for (let i = 0; i < lengthImageDateBase; i++ ){
-    if (i == 0){
-        const html = `
-            <img 
-                class="image-carousel ${classActive}"
-                src=${imageDateBase[i]}
+    const html = `
+           <img 
+               class="image-carousel"
+                 src=${imageDateBase[i]}
             >
         `; // - constanta con il html da creare per carousel grande
-        const htmlMini = `
-            <img 
-                class="image-carousel-mini"
-                src=${imageDateBase[i]}
-            >
-        `; // - constanta con il html da creare per carousel mini
-        carouselBoxDOMElement.innerHTML += html;
-        carouselBoxMiniDOMElement.innerHTML += htmlMini;
-        // - assegna bg image per la prima foto
-        carouselBoxDOMElement.classList.add(`bg-img-${i}`)    
-    } else {
-        const html = `
-            <img 
-                class="image-carousel"
-                src=${imageDateBase[i]}
-            >
-        `; // - constanta con il html da creare per carousel grande
-        const htmlMini = `
-            <img 
-                class="image-carousel-mini"
-                src=${imageDateBase[i]}
-            >   
-        `; // - constanta con il html da creare per carousel mini
-        carouselBoxDOMElement.innerHTML += html;
-        carouselBoxMiniDOMElement.innerHTML += htmlMini;
-        // carouselAfterBoxDOMElement.style.backgroundImage = "url(" + imageDateBase[i] + ")";
-    }
+    const htmlMini = `
+        <img 
+            class="image-carousel-mini"
+            src=${imageDateBase[i]}
+        >   
+    `; // - constanta con il html da creare per carousel mini
+    carouselBoxDOMElement.innerHTML += html;
+    carouselBoxMiniDOMElement.innerHTML += htmlMini;   
+
+    // if (i == 0){
+    //     const html = `
+    //         <img 
+    //             class="image-carousel ${classActive}"
+    //             src=${imageDateBase[i]}
+    //         >
+    //     `; // - constanta con il html da creare per carousel grande
+    //     const htmlMini = `
+    //         <img 
+    //             class="image-carousel-mini"
+    //             src=${imageDateBase[i]}
+    //         >
+    //     `; // - constanta con il html da creare per carousel mini
+    //     carouselBoxDOMElement.innerHTML += html;
+    //     carouselBoxMiniDOMElement.innerHTML += htmlMini;
+    //     // - assegna bg image per la prima foto
+    //     carouselBoxDOMElement.classList.add(`bg-img-${i}`)    
+    // } else {
+    //     const html = `
+    //         <img 
+    //             class="image-carousel"
+    //             src=${imageDateBase[i]}
+    //         >
+    //     `; // - constanta con il html da creare per carousel grande
+    //     const htmlMini = `
+    //         <img 
+    //             class="image-carousel-mini"
+    //             src=${imageDateBase[i]}
+    //         >   
+    //     `; // - constanta con il html da creare per carousel mini
+    //     carouselBoxDOMElement.innerHTML += html;
+    //     carouselBoxMiniDOMElement.innerHTML += htmlMini;
+    // }
 }
 
 // - Creamo DOM Element come array per i nostri imagine
@@ -80,8 +94,11 @@ let lengthImagesDOMElement = imagesDOMElement.length;
     // - Assegnamo l'indice della foto iniziale
     let indexCurrentImage = 0;
 
-    // - Aggiungiamo class active a image-carousel-mini in base al indice della foto principale
+    // - Aggiungiamo class active a image-carousel e image-carousel-mini in base al indice della foto principale
+    imagesDOMElement[indexCurrentImage].classList.add("active");
     imagesMiniDOMElement[indexCurrentImage].classList.add("active");
+    // - Aggiungiamo bg image alla prima imagine utilizzandao indice della imagine corrente 
+    carouselBoxDOMElement.classList.add(`bg-img-${indexCurrentImage}`)   
 
     // - Ciclo for con evento click per andare avanti 
     for (let i = 0; i < lengthArrowDownDOMElement; i++){
