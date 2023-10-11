@@ -35,12 +35,14 @@ for (let i = 0; i < lengthImageDateBase; i++ ){
                 src=${imageDateBase[i]}
             >
         `;
+        carouselBoxDOMElement.classList.add(`bg-img-${i}`)
         carouselBoxMiniDOMElement.innerHTML += `
             <img 
                 class="image-carousel-mini"
                 src=${imageDateBase[i]}
             >
         `;
+        // carouselAfterBoxDOMElement.style.backgroundImage ="url(" + imageDateBase[i] + ")";
     } else {
         carouselBoxDOMElement.innerHTML += `
             <img 
@@ -54,6 +56,7 @@ for (let i = 0; i < lengthImageDateBase; i++ ){
                 src=${imageDateBase[i]}
             >
         `;
+        // carouselAfterBoxDOMElement.style.backgroundImage = "url(" + imageDateBase[i] + ")";
     }
 }
 
@@ -92,11 +95,14 @@ let lengthImagesDOMElement = imagesDOMElement.length;
             imagesDOMElement[indexCurrentImage].classList.remove("active")
             imagesDOMElement[indexCurrentImage].classList.add("d-none")
             imagesMiniDOMElement[indexCurrentImage].classList.remove("active")
+            carouselBoxDOMElement.classList.remove(`bg-img-${indexCurrentImage}`)
     
             // - Togliamo/Aggiungiamo i classi a img successiva  
             imagesDOMElement[indexNextImage].classList.add("active")
             imagesDOMElement[indexNextImage].classList.remove("d-none")
             imagesMiniDOMElement[indexNextImage].classList.add("active")
+            carouselBoxDOMElement.classList.add(`bg-img-${indexNextImage}`)
+    
             
             // - Controliamo se indice della img corrente è ultimo allore deve partire da capo altrimenti viene incrementato di 1
             if (indexCurrentImage == (lengthImagesDOMElement - 1)){
@@ -124,12 +130,15 @@ let lengthImagesDOMElement = imagesDOMElement.length;
             imagesDOMElement[indexCurrentImage].classList.remove("active")
             imagesDOMElement[indexCurrentImage].classList.add("d-none")
             imagesMiniDOMElement[indexCurrentImage].classList.remove("active")
+            carouselBoxDOMElement.classList.remove(`bg-img-${indexCurrentImage}`)
+    
     
             // - Togliamo/Aggiungiamo i classi a img precedente 
             imagesDOMElement[indexBeforeImage].classList.add("active")
             imagesDOMElement[indexBeforeImage].classList.remove("d-none")
             imagesMiniDOMElement[indexBeforeImage].classList.add("active")
-             
+            carouselBoxDOMElement.classList.add(`bg-img-${indexBeforeImage}`)
+    
             // - Controliamo se indice della img corrente è 0 allore deve partire da ultimo indice altimenti indice della img corrente decrementa di 1
             if(indexCurrentImage == 0){
                 indexCurrentImage = lengthImagesDOMElement -1;
