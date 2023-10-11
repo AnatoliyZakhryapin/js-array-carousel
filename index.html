@@ -7,23 +7,40 @@
     <script src="https://kit.fontawesome.com/08d5002177.js" crossorigin="anonymous"></script>
     <style>
         .carousel-box {
-            height: 800px;
+            height:200px;    
         }
 
         .carousel-box,
         .col-6 {
             background-color: rgb(29, 29, 29);
+            
+            position: relative;
+        
         }
+
+        /* .carousel-box::after {
+            content: " ";
+            position: absolute;
+	        left: 0;
+	        top: 0;
+            width: 100%;
+	        height: 100%;
+            background-image: url(./img/01.webp);
+            background-size: cover;
+            filter: blur(2px);
+            z-index: -1;
+        } */
+
 
         .image-carousel {
             max-width: 100%;
         }
 
         .carousel-box-mini {
-            width: 35%;
+            width: 25%;
             right: 0%;
             z-index: 1;
-            opacity: 110;
+            opacity: 0;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -52,14 +69,14 @@
             position: absolute;
             display: none;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translatex(-50%);
         } 
 
         .icon-custom-mini {
             color: aliceblue;
             position: absolute;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translatex(-50%);
             z-index: 3;
         } 
 
@@ -82,6 +99,31 @@
         img {
             max-height: 100%;    
         }
+
+        /* // Small devices (landscape phones, 576px and up) */
+        @media (min-width: 576px) { 
+            .carousel-box {
+            height:400px;    
+            }
+        }
+        /* // Medium devices (tablets, 768px and up) */
+        @media (min-width: 768px) { 
+            .carousel-box {
+            height:600px;    
+            }
+        }
+        /* // Large devices (desktops, 992px and up) */
+        @media (min-width: 992px) {
+            .carousel-box {
+            height:800px;    
+            }
+        }
+
+        /* // X-Large devices (large desktops, 1200px and up) */
+        @media (min-width: 1200px) { }
+
+        /* // XX-Large devices (larger desktops, 1400px and up) */
+        @media (min-width: 1400px) { }
     </style>
     <title>Carosello Mono Array</title>
 </head>
@@ -89,13 +131,8 @@
 
     <div class="conteiner pt-5">
         <div class="row justify-content-center">
-            <div class="col-6 border border-2 border-black d-flex justify-content-center position-relative">
-                <div class="carousel-box-mini border border-2 border-success position-absolute position-relative">
-                    <!-- <img src="./img/01.webp" class="image-carousel-mini">
-                    <img src="./img/02.webp" class="image-carousel-mini">
-                    <img src="./img/03.webp" class="image-carousel-mini active">
-                    <img src="./img/04.webp" class="image-carousel-mini">
-                    <img src="./img/05.webp" class="image-carousel-mini">  -->
+            <div class="col-8 position-relative">
+                <div class="carousel-box-mini position-absolute position-relative">
                     <a 
                     id="arrow-left-mini" 
                     class="icon-custom-mini icon-top fs-3 arrow-up" 
@@ -109,7 +146,7 @@
                         <i class="fa-solid fa-angle-down"></i>
                     </a> 
                 </div>            
-                <div class="carousel-box border border-2 border-danger d-flex justify-content-center  align-items-center position-relative">
+                <div class="carousel-box d-flex justify-content-center  align-items-center position-relative">
                     <a 
                     id="arrow-up"
                     class="icon-custom icon-top fs-3 arrow-up"  
